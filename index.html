@@ -1,108 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Toyin's portfolio of data analytics, Python, and machine learning projects.">
-  <title>Toyin | Data Analyst Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Oluwatoyin's data analytics and machine learning portfolio." />
+  <title>Oluwatoyin | Data Analyst & Machine Learning</title>
   <style>
-    :root{--bg:#0b1120;--panel:#111a2d;--panel2:#162238;--text:#e8eef8;--muted:#a6b3c8;--accent:#69e0c2;--accent2:#8db7ff;--line:rgba(255,255,255,.09);--max:1120px}
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth;scroll-padding-top:85px}
-    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
-    a{color:inherit;text-decoration:none}
-    .wrap{width:min(var(--max),92%);margin:auto}
-    .nav{position:sticky;top:0;z-index:20;background:rgba(11,17,32,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-    .nav-inner{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-    .brand{font-weight:800;font-size:1.15rem;letter-spacing:-.04em}.brand span{color:var(--accent)}
-    .nav-links{display:flex;gap:24px;align-items:center;font-size:.92rem;color:var(--muted)}.nav-links a:hover{color:var(--accent)}
-    .hero{padding:100px 0 82px;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:460px;height:460px;right:-160px;top:-150px;border-radius:50%;background:radial-gradient(circle,rgba(105,224,194,.14),transparent 70%);pointer-events:none}
-    .eyebrow{color:var(--accent);font-size:.82rem;text-transform:uppercase;letter-spacing:.16em;font-weight:700;margin-bottom:18px}
-    h1{font-size:clamp(2.7rem,6vw,5rem);line-height:1.08;letter-spacing:-.055em;max-width:800px;margin-bottom:22px}h1 .highlight{color:var(--accent)}
-    .hero-sub{font-size:1.18rem;color:var(--muted);max-width:700px}
-    .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 19px;border-radius:9px;font-weight:700;border:1px solid var(--line);transition:.2s}
-    .btn-primary{background:var(--accent);color:#08131a;border-color:var(--accent)}.btn-secondary{background:transparent;color:var(--text)}.btn:hover{transform:translateY(-2px)}
-    .quick-stats{display:flex;flex-wrap:wrap;gap:32px;margin-top:55px}.stat strong{display:block;font-size:1.25rem}.stat span{font-size:.87rem;color:var(--muted)}
-    section{padding:76px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:30px}.section-kicker{color:var(--accent);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:8px}.section-head h2{font-size:clamp(1.8rem,3.5vw,2.6rem);letter-spacing:-.04em}.section-head p{max-width:560px;color:var(--muted)}
-    .about-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:24px}.card{background:linear-gradient(145deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:18px;padding:28px}.card p{color:var(--muted)}.about-card p+p{margin-top:14px}
-    .focus-list{display:grid;gap:14px}.focus-item{padding-bottom:14px;border-bottom:1px solid var(--line)}.focus-item:last-child{border:0;padding-bottom:0}.focus-item strong{display:block;margin-bottom:3px}.focus-item span{color:var(--muted);font-size:.92rem}
-    .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.skill-group h3{margin-bottom:14px;font-size:1.05rem}.chips{display:flex;flex-wrap:wrap;gap:9px}.chip{font-size:.88rem;color:#cbd8e9;border:1px solid var(--line);background:rgba(255,255,255,.035);padding:7px 11px;border-radius:8px}
-    .project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.project{display:flex;flex-direction:column;min-height:245px}.project-top{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:15px}.project-type{font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent)}.project h3{font-size:1.2rem;margin-bottom:10px}.project p{color:var(--muted);font-size:.95rem}.project .chips{margin-top:18px}.project-footer{margin-top:auto;padding-top:22px}.project-link{color:var(--accent);font-weight:700}.project-link:hover{text-decoration:underline}
-    .ai-card{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}.ai-card h3{font-size:1.4rem;margin-bottom:12px}.ai-card p{color:var(--muted)}
-    .contact{background:linear-gradient(140deg,rgba(105,224,194,.08),rgba(141,183,255,.06));border:1px solid var(--line);border-radius:22px;padding:42px}.contact h2{font-size:2rem;margin-bottom:12px}.contact p{color:var(--muted);max-width:650px}.contact-links{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px}
-    footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.9rem}.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-    @media(max-width:760px){.nav-inner{padding:14px 0;flex-direction:column}.nav-links{gap:15px;flex-wrap:wrap;justify-content:center}.hero{padding:72px 0 60px}.about-grid,.skills-grid,.project-grid,.ai-card{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:12px}.quick-stats{gap:22px}.contact{padding:28px}}
-    @media(max-width:430px){.nav-links{font-size:.84rem;gap:12px}.hero-actions .btn{width:100%}}
+    :root {
+      --bg: #f4f1e8; --surface: #fffdf8; --surface2: #e8eee5;
+      --text: #18352d; --muted: #63736b; --accent: #2f6b52;
+      --accent2: #b88b52; --line: rgba(24,53,45,.13);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif;
+      background: radial-gradient(circle at 85% 0%, rgba(184,139,82,.13) 0, transparent 34%), var(--bg);
+      color: var(--text); line-height: 1.65; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1100px, 92%); margin: auto; }
+    header { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(16px);
+      background: rgba(244,241,232,.88); border-bottom: 1px solid var(--line); }
+    nav { display: flex; align-items: center; justify-content: space-between; min-height: 72px; gap: 24px; }
+    .brand { font-size: 1.1rem; font-weight: 800; letter-spacing: .02em; }
+    .brand span { color: var(--accent); }
+    .navlinks { display: flex; flex-wrap: wrap; gap: 22px; color: var(--muted); font-size: .92rem; }
+    .navlinks a:hover { color: var(--accent); }
+    .hero { padding: 100px 0 80px; display: grid; grid-template-columns: 1.4fr .8fr; gap: 44px; align-items: center; }
+    .eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: .14em; font-size: .78rem; font-weight: 700; }
+    h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); line-height: 1.06; margin: 15px 0 20px; letter-spacing: -.045em; }
+    h1 .highlight { color: var(--accent); }
+    .hero p { color: var(--muted); font-size: 1.08rem; max-width: 650px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn { display: inline-flex; padding: 12px 18px; border-radius: 12px; font-weight: 700; border: 1px solid var(--line); }
+    .btn.primary { background: var(--accent); color: #07151a; border-color: transparent; }
+    .btn:hover { transform: translateY(-2px); }
+    .hero-card { background: linear-gradient(145deg, #e4ece3, #fffdf8); border: 1px solid var(--line);
+      padding: 28px; border-radius: 24px; box-shadow: 0 22px 60px rgba(24,53,45,.09); }
+    .hero-card h3 { margin-top: 0; }
+    .taglist { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 18px; }
+    .tag { font-size: .82rem; color: var(--accent); background: rgba(47,107,82,.08); border: 1px solid rgba(47,107,82,.18); padding: 6px 10px; border-radius: 99px; }
+    section { padding: 58px 0; }
+    .section-title { font-size: 2rem; margin: 0 0 12px; letter-spacing: -.03em; }
+    .section-intro { color: var(--muted); max-width: 720px; margin: 0 0 28px; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; }
+    .card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 24px;
+      box-shadow: 0 8px 24px rgba(24,53,45,.035); }
+    .card h3 { margin: 0 0 8px; font-size: 1.15rem; }
+    .card p { margin: 0; color: var(--muted); }
+    .project-links { margin-top: 18px; display: flex; gap: 16px; color: var(--accent); font-weight: 700; font-size: .92rem; }
+    .skills { display: flex; flex-wrap: wrap; gap: 10px; }
+    .skill { background: #e8eee5; border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; }
+    .contact { background: linear-gradient(145deg, #e6eee5, #fffdf8); border: 1px solid var(--line); border-radius: 24px; padding: 32px; }
+    footer { border-top: 1px solid var(--line); padding: 26px 0; color: var(--muted); font-size: .9rem; }
+    @media (max-width: 760px) {
+      nav { align-items: flex-start; padding: 16px 0; flex-direction: column; }
+      .hero { grid-template-columns: 1fr; padding-top: 65px; }
+      .grid { grid-template-columns: 1fr; }
+      .navlinks { gap: 14px; }
+    }
   </style>
 </head>
 <body>
-  <nav class="nav">
-    <div class="wrap nav-inner">
-      <a class="brand" href="#home">Toyin<span>.</span></a>
-      <div class="nav-links"><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#approach">AI Workflow</a><a href="#contact">Contact</a></div>
+<header>
+  <nav class="container">
+    <a class="brand" href="#home">Oluwatoyin Oladejo<span>.</span></a>
+    <div class="navlinks">
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
     </div>
   </nav>
+</header>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="wrap">
-        <p class="eyebrow">Data Analytics · Python · Machine Learning</p>
-        <h1>Turning data into <span class="highlight">clear insights</span> and better decisions.</h1>
-        <p class="hero-sub">Hi, I'm Toyin — an aspiring Data Analyst building practical projects with Excel, Python, and data visualization. I enjoy exploring datasets, finding patterns, and communicating what the data can tell us.</p>
-        <div class="hero-actions"><a class="btn btn-primary" href="#projects">Explore my projects ↗</a><a class="btn btn-secondary" href="https://github.com/Toyin-dev" target="_blank" rel="noopener">GitHub profile ↗</a></div>
-        <div class="quick-stats"><div class="stat"><strong>Data Analytics</strong><span>Cleaning · Exploration · Insights</span></div><div class="stat"><strong>Python</strong><span>Pandas · Visualization</span></div><div class="stat"><strong>Machine Learning</strong><span>Project-based learning</span></div></div>
+<main>
+  <div class="container hero" id="home">
+    <div>
+      <div class="eyebrow">Data Analytics · Python · Machine Learning</div>
+      <h1>Hi, I'm <span class="highlight">Oluwatoyin.</span></h1>
+      <p>I turn data into clear insights that help people understand performance, uncover patterns, and make better decisions. I work with Excel and Python, and I am building my skills in analytics, visualization, and machine learning through hands-on projects.</p>
+      <div class="actions">
+        <a class="btn primary" href="#projects">Explore my projects</a>
+        <a class="btn" href="mailto:adewoleoluwatoyin52@gmail.com">Contact me</a>
       </div>
-    </section>
+    </div>
+    <aside class="hero-card">
+      <h3>What I do</h3>
+      <p>Explore datasets, clean and prepare information, analyze trends, build visualizations, and communicate findings in a practical, business-focused way.</p>
+      <div class="taglist"><span class="tag">Excel</span><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Data Visualization</span><span class="tag">Machine Learning</span></div>
+    </aside>
+  </div>
 
-    <section id="about">
-      <div class="wrap">
-        <div class="section-head"><div><p class="section-kicker">A little about me</p><h2>Curious about data. Focused on impact.</h2></div></div>
-        <div class="about-grid">
-          <article class="card about-card"><p>I am developing my skills as a Data Analyst through hands-on projects and continuous learning. My work involves preparing data, exploring trends, using visualizations to make findings easier to understand, and translating analysis into practical questions and insights.</p><p>I am building a portfolio that demonstrates my analytical process—from understanding a dataset and cleaning it to exploring it and presenting findings clearly. I am also expanding my Python and machine learning skills.</p></article>
-          <aside class="card focus-list"><div class="focus-item"><strong>What I enjoy</strong><span>Finding patterns, answering questions, and making data easier to understand.</span></div><div class="focus-item"><strong>Current focus</strong><span>Python, Pandas, exploratory analysis, and stronger project documentation.</span></div><div class="focus-item"><strong>Open to</strong><span>Entry-level Data Analyst, reporting, business, and analytics opportunities.</span></div></aside>
-        </div>
+  <section id="about"><div class="container">
+    <h2 class="section-title">About me</h2>
+    <p class="section-intro">I am an aspiring Data Analyst with a strong interest in using data to solve real-world problems. My projects include exploratory data analysis, data cleaning, visualization, and machine-learning experiments. I enjoy learning new tools, asking meaningful questions of data, and translating technical work into understandable insights.</p>
+  </div></section>
+
+  <section id="skills"><div class="container">
+    <h2 class="section-title">Skills & tools</h2>
+    <p class="section-intro">Tools and techniques I use or am actively developing through project work.</p>
+    <div class="skills">
+      <span class="skill">Microsoft Excel</span><span class="skill">Python</span><span class="skill">Pandas</span>
+      <span class="skill">NumPy</span><span class="skill">Matplotlib</span><span class="skill">Seaborn</span>
+      <span class="skill">Data Cleaning</span><span class="skill">Exploratory Data Analysis</span>
+      <span class="skill">Data Visualization</span><span class="skill">SQL (learning)</span>
+      <span class="skill">Machine Learning</span><span class="skill">Jupyter Notebook</span>
+      <span class="skill">Power BI</span>
+    </div>
+  </div></section>
+
+  <section id="projects"><div class="container">
+    <h2 class="section-title">Selected projects</h2>
+    <p class="section-intro">A selection of my analytics and machine-learning work. Open each repository to explore the notebooks, code, and project details.</p>
+    <div class="grid">
+      <article class="card"><h3>DParadise Sales Analytics</h3><p>Analyze sales data to explore revenue, orders, products, channels, and business performance using Python.</p><div class="project-links"><a href="https://github.com/Toyin-dev/dparadise_sales_analytics" target="_blank" rel="noopener">View repository ↗</a></div></article>
+      <article class="card"><h3>Charging Pattern Analysis</h3><p>Explore patterns and trends in charging-related data through analysis and visualization.</p><div class="project-links"><a href="https://github.com/Toyin-dev/Charging_pattern" target="_blank" rel="noopener">View repository ↗</a></div></article>
+      <article class="card"><h3>India Accident Analysis</h3><p>Investigate accident data to understand patterns and potential contributing factors.</p><div class="project-links"><a href="https://github.com/Toyin-dev/india_accident" target="_blank" rel="noopener">View repository ↗</a></div></article>
+      <article class="card"><h3>Wine Quality Project</h3><p>Machine-learning project exploring wine-quality data and predictive modelling.</p><div class="project-links"><a href="https://github.com/Toyin-dev/my-wine" target="_blank" rel="noopener">View repository ↗</a></div></article>
+      <article class="card"><h3>Electronic Commerce Analysis</h3><p>Explore e-commerce data to identify useful trends and insights.</p><div class="project-links"><a href="https://github.com/Toyin-dev/Electronic-commerce" target="_blank" rel="noopener">View repository ↗</a></div></article>
+      <article class="card"><h3>Income App</h3><p>A project involving income-related data and application development or analysis.</p><div class="project-links"><a href="https://github.com/Toyin-dev/income_app" target="_blank" rel="noopener">View repository ↗</a></div></article>
+      <article class="card"><h3>Tech Support Analysis</h3><p>Work with support-related data to explore service patterns and performance.</p><div class="project-links"><a href="https://github.com/Toyin-dev/tech_support" target="_blank" rel="noopener">View repository ↗</a></div></article>
+      <article class="card"><h3>Customer Data Project</h3><p>Analyze customer data to explore characteristics, behavior, and possible insights.</p><div class="project-links"><a href="https://github.com/Toyin-dev/customer_data" target="_blank" rel="noopener">View repository ↗</a></div></article>
+    </div>
+  </div></section>
+
+  <section id="ai"><div class="container">
+    <h2 class="section-title">AI-assisted workflow</h2>
+    <p class="section-intro">I use tools such as ChatGPT, Claude, and Codex to support learning, debugging, documentation, and analytical problem-solving. I review, test, and validate outputs rather than relying on them blindly.</p>
+  </div></section>
+
+  <section id="contact"><div class="container">
+    <div class="contact">
+      <h2 class="section-title">Let's connect</h2>
+      <p class="section-intro">I'm open to entry-level and junior opportunities in data analytics, reporting, business intelligence, and related roles.</p>
+      <div class="actions">
+        <a class="btn primary" href="mailto:adewoleoluwatoyin52@gmail.com">Email: adewoleoluwatoyin52@gmail.com</a>
+        <a class="btn" href="https://www.linkedin.com/in/oluwatoyin-oladejo-b79679251/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn" href="https://github.com/Toyin-dev" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
-    </section>
-
-    <section id="skills">
-      <div class="wrap">
-        <div class="section-head"><div><p class="section-kicker">My toolkit</p><h2>Skills & tools</h2></div><p>Tools I use in projects and skills I am actively developing.</p></div>
-        <div class="skills-grid">
-          <article class="card skill-group"><h3>Data Analysis</h3><div class="chips"><span class="chip">Microsoft Excel</span><span class="chip">Data Cleaning</span><span class="chip">Exploratory Data Analysis</span><span class="chip">Business Insights</span></div></article>
-          <article class="card skill-group"><h3>Python</h3><div class="chips"><span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">Matplotlib</span><span class="chip">Seaborn</span></div></article>
-          <article class="card skill-group"><h3>Developing Skills</h3><div class="chips"><span class="chip">SQL</span><span class="chip">Machine Learning</span><span class="chip">Data Storytelling</span><span class="chip">Git & GitHub</span></div></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects">
-      <div class="wrap">
-        <div class="section-head"><div><p class="section-kicker">Selected work</p><h2>Projects</h2></div><p>A collection of analytics and machine learning projects. Visit each repository for notebooks, code, and project details.</p></div>
-        <div class="project-grid">
-          <article class="card project"><div class="project-top"><span class="project-type">Data Analytics</span><span>01</span></div><h3>DParadise Sales Analytics</h3><p>Sales data analysis project exploring product, order, and sales information to practice data preparation, exploratory analysis, and business-focused insights.</p><div class="chips"><span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">EDA</span></div><div class="project-footer"><a class="project-link" href="https://github.com/Toyin-dev/dparadise_sales_analytics" target="_blank" rel="noopener">View repository ↗</a></div></article>
-          <article class="card project"><div class="project-top"><span class="project-type">Data Analytics</span><span>02</span></div><h3>Charging Pattern Analysis</h3><p>A data project focused on exploring charging-related patterns and working with data to identify trends.</p><div class="chips"><span class="chip">Data Analysis</span><span class="chip">Visualization</span></div><div class="project-footer"><a class="project-link" href="https://github.com/Toyin-dev/Charging_pattern" target="_blank" rel="noopener">View repository ↗</a></div></article>
-          <article class="card project"><div class="project-top"><span class="project-type">Data Analytics</span><span>03</span></div><h3>India Accident Analysis</h3><p>An exploratory project examining accident data and using analysis to investigate patterns within the dataset.</p><div class="chips"><span class="chip">Data Analysis</span><span class="chip">Exploration</span></div><div class="project-footer"><a class="project-link" href="https://github.com/Toyin-dev/india_accident" target="_blank" rel="noopener">View repository ↗</a></div></article>
-          <article class="card project"><div class="project-top"><span class="project-type">Data Analytics</span><span>04</span></div><h3>Electronic Commerce</h3><p>A project exploring electronic-commerce data through analytical workflows and data exploration.</p><div class="chips"><span class="chip">Analytics</span><span class="chip">Python</span></div><div class="project-footer"><a class="project-link" href="https://github.com/Toyin-dev/Electronic-commerce" target="_blank" rel="noopener">View repository ↗</a></div></article>
-          <article class="card project"><div class="project-top"><span class="project-type">Machine Learning</span><span>05</span></div><h3>Wine Quality</h3><p>A machine learning project related to wine quality prediction. Explore the repository for the dataset, modeling workflow, and implementation.</p><div class="chips"><span class="chip">Machine Learning</span><span class="chip">Python</span></div><div class="project-footer"><a class="project-link" href="https://github.com/Toyin-dev/my-wine" target="_blank" rel="noopener">View repository ↗</a></div></article>
-          <article class="card project"><div class="project-top"><span class="project-type">Project</span><span>06</span></div><h3>Income App</h3><p>A project exploring income-related data or application work. Repository details provide the implementation and project scope.</p><div class="chips"><span class="chip">Python</span><span class="chip">Project Work</span></div><div class="project-footer"><a class="project-link" href="https://github.com/Toyin-dev/income_app" target="_blank" rel="noopener">View repository ↗</a></div></article>
-          <article class="card project"><div class="project-top"><span class="project-type">Data Analytics</span><span>07</span></div><h3>Tech Support</h3><p>A project using tech-support-related data. Visit the repository to see the analysis and work completed.</p><div class="chips"><span class="chip">Data Analysis</span><span class="chip">Project Work</span></div><div class="project-footer"><a class="project-link" href="https://github.com/Toyin-dev/tech_support" target="_blank" rel="noopener">View repository ↗</a></div></article>
-          <article class="card project"><div class="project-top"><span class="project-type">Data Analytics</span><span>08</span></div><h3>Customer Data</h3><p>A customer-data project demonstrating practical work with a dataset and an analytical workflow.</p><div class="chips"><span class="chip">Data</span><span class="chip">Analysis</span></div><div class="project-footer"><a class="project-link" href="https://github.com/Toyin-dev/customer_data" target="_blank" rel="noopener">View repository ↗</a></div></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="approach">
-      <div class="wrap">
-        <div class="section-head"><div><p class="section-kicker">My workflow</p><h2>AI-assisted, human-checked</h2></div></div>
-        <div class="card ai-card"><div><h3>Using AI as a learning and productivity tool</h3><p>I use tools such as ChatGPT, Claude, and Codex to support coding, debugging, analytical exploration, documentation, and learning. I treat AI-generated suggestions as a starting point—reviewing the code, checking assumptions, and validating results before relying on them.</p></div><div class="chips"><span class="chip">ChatGPT</span><span class="chip">Claude</span><span class="chip">Codex</span><span class="chip">Code review</span><span class="chip">Debugging</span><span class="chip">Learning</span></div></div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="wrap"><div class="contact"><p class="section-kicker">Let's connect</p><h2>Open to opportunities and collaboration.</h2><p>I am looking for opportunities to grow, contribute, and apply my data analysis skills to real-world problems. Feel free to explore my work or connect with me through GitHub.</p><div class="contact-links"><a class="btn btn-primary" href="https://github.com/Toyin-dev" target="_blank" rel="noopener">Visit GitHub ↗</a><a class="btn btn-secondary" href="https://github.com/Toyin-dev/Toyin-dev.github.io" target="_blank" rel="noopener">Website source ↗</a></div></div></div>
-    </section>
-  </main>
-  <footer><div class="wrap footer-inner"><span>© 2026 Toyin · Data Analyst Portfolio</span><span>Built with HTML & CSS · Hosted on GitHub Pages</span></div></footer>
+    </div>
+  </div></section>
+</main>
+<footer><div class="container">© <span id="year">2026</span> Oluwatoyin. Built with care and curiosity.</div></footer>
 </body>
 </html>
